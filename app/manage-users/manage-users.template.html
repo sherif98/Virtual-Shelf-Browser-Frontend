@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+      <p>Name: {{$ctrl.user.userName}}</p>
+      
+      <p>
+        Search:
+        <input ng-model="$ctrl.query" />
+      </p>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="users">
+        <li ng-repeat="user in $ctrl.users | filter:$ctrl.query"
+            class="thumbnail user-list-item">
+          <p>{{user.userName}}</p>
+          <p>{{user.authorityLevel}}</p>
+          <button ng-click="$ctrl.promote(user, 'ADMIN')" ng-hide="user.authorityLevel === 'ADMIN'">Promote To Admin</button>
+          <button ng-click="$ctrl.promote(user, 'BOOK_PROVIDER')"  ng-hide="user.authorityLevel !== 'NORMAL_USER'">Promote To Book Provider</button>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

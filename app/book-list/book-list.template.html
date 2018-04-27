@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+      <p>Name: {{$ctrl.user.userName}}</p>
+
+      <button ng-click="$ctrl.manageUsers()" ng-hide="$ctrl.user.authorityLevel !== 'ADMIN'">Manage Users</button>
+      <button ng-click="$ctrl.manageLibraries()" ng-hide="$ctrl.user.authorityLevel !== 'BOOK_PROVIDER'">Manage Libraries</button>
+
+
+      <p>
+        Search:
+        <input ng-model="$ctrl.query" />
+      </p>
+
+      
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="books">
+        <li ng-repeat="book in $ctrl.books | filter:$ctrl.query"
+            class="thumbnail book-list-item">
+          <a href="#!/books/{{book.key.isbn}}/{{book.key.ownerId}}" class="thumb">
+            <img ng-src="{{book.thumbnailLink}}" alt="{{book.title}}" />
+          </a>
+          <a href="#!/books/{{book.key.isbn}}/{{book.key.ownerId}}">{{book.title}}</a>
+          <p>{{book.description}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

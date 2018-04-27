@@ -1,0 +1,24 @@
+<div class="book-image">
+  <img ng-src="{{$ctrl.book.thumbnailLink}}" class="book"/>
+</div>
+
+<h1>{{$ctrl.book.title}}</h1>
+
+<p>{{$ctrl.book.description}}</p>
+
+<ul class="specs">
+  <li>
+    <span>Availability</span>
+    <dl>
+      <dt>Availability</dt>
+      <dd>{{$ctrl.book.libraryLocation}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Reviews Link</span>
+    <dl>
+      <dt>Link</dt>
+      <a href='{{$ctrl.book.reviewsLink}}'>{{$ctrl.book.reviewsLink}}</a>
+    </dl>
+  </li>
+</ul>

@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      <p>
+        UserName:
+        <input ng-model="$ctrl.username" />
+        <br/>
+        <br/>
+        Password:
+        <input type="password" ng-model="$ctrl.pwd">
+        <br/>
+        <br/>
+        <button ng-click="$ctrl.login()" >login</button>
+        <button ng-click="$ctrl.signup()" >signup</button>
+
+      </p>
+      <p>{{$ctrl.errMessage}}</p>
+
+  </div>
+</div>
