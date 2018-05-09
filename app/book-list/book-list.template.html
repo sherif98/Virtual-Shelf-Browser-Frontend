@@ -19,16 +19,17 @@
     <div class="col-md-10">
       <!--Body content-->
 
-      <ul class="books">
-        <li ng-repeat="book in $ctrl.books | filter:$ctrl.query"
-            class="thumbnail book-list-item">
-          <a href="#!/books/{{book.key.isbn}}/{{book.key.ownerId}}" class="thumb">
-            <img ng-src="{{book.thumbnailLink}}" alt="{{book.title}}" />
-          </a>
-          <a href="#!/books/{{book.key.isbn}}/{{book.key.ownerId}}">{{book.title}}</a>
-          <p>{{book.description}}</p>
-        </li>
-      </ul>
+
+      <div class="bookshelf--frame">
+          <div class="book-wrapper" ng-repeat="book in $ctrl.books | filter:$ctrl.query">
+              <a href="#!/books/{{book.key.isbn}}/{{book.key.ownerId}}" class="thumb">
+                <img ng-src="{{book.thumbnailLink}}" alt="{{book.title}}" />
+              </a>
+            </div>
+      </div>
+
+
+
 
     </div>
   </div>

@@ -17,15 +17,17 @@ angular.
             data: { isbn: self.isbn, ownerId: self.user.id, libraryLocation: self.libraryLocation }
           }
           self.message = "";
+          self.errMessage = "";
           $http(req).then(
             function(response) {
               console.log(response.status);
               self.message = "Book Added Successfuly";
               self.isbn = "";
               self.libraryLocation = "";
+              self.errMessage = "";
             },
             function(err){
-              self.message = err.data.message;
+              self.errMessage = err.data.message;
             }
           );
         };

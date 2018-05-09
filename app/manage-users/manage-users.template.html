@@ -11,17 +11,28 @@
 
     </div>
     <div class="col-md-10">
-      <!--Body content-->
 
-      <ul class="users">
-        <li ng-repeat="user in $ctrl.users | filter:$ctrl.query"
-            class="thumbnail user-list-item">
-          <p>{{user.userName}}</p>
-          <p>{{user.authorityLevel}}</p>
-          <button ng-click="$ctrl.promote(user, 'ADMIN')" ng-hide="user.authorityLevel === 'ADMIN'">Promote To Admin</button>
-          <button ng-click="$ctrl.promote(user, 'BOOK_PROVIDER')"  ng-hide="user.authorityLevel !== 'NORMAL_USER'">Promote To Book Provider</button>
-        </li>
-      </ul>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Authority Level</th>
+          <th>Options</th>
+        </thead>
+
+        <tbody>
+
+            <tr ng-repeat="user in $ctrl.users | filter:$ctrl.query">
+                <td><strong>{{user.userName}}</strong></td>
+                <td>{{user.authorityLevel}}</td>
+                <td>
+
+                    <button ng-click="$ctrl.promote(user, 'ADMIN')" ng-hide="user.authorityLevel === 'ADMIN'">Promote To Admin</button>
+                    <button ng-click="$ctrl.promote(user, 'BOOK_PROVIDER')"  ng-hide="user.authorityLevel !== 'NORMAL_USER'">Promote To Book Provider</button>
+                </td>
+              </tr>
+
+        </tbody>
+      </table>
 
     </div>
   </div>

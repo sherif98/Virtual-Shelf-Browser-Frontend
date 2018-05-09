@@ -24,6 +24,7 @@ angular.
             function(err){
               console.log(err.data);
               self.errMessage = err.data.message;
+              console.log(self.errMessage);
             }
           );
         };
